@@ -19,7 +19,7 @@ LABEL khulnasoft.role=system
 ENV PACKAGE_SCAN_CONCURRENCY=5
 ENV DOCKER_VERSION=24.0.2
 ENV NERDCTL_VERSION=1.4.0
-ENV GRYPE_DB_UPDATE_URL="https://threat-intel.khulnasoft.io/vulnerability-db/listing.json"
+ENV GRYPE_DB_UPDATE_URL="https://threat-intel.khulnasoft.com/vulnerability-db/listing.json"
 
 COPY --from=build /go/package-scanner/package-scanner /usr/local/bin/package-scanner
 COPY --from=build /go/package-scanner/tools/grype-bin/grype.bin /usr/local/bin/grype

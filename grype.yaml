@@ -47,7 +47,7 @@ db:
   
   # URL of the vulnerability database
   # same as GRYPE_DB_UPDATE_URL env var
-  update-url: "https://threat-intel.khulnasoft.io/vulnerability-db/listing.json"
+  update-url: "https://threat-intel.khulnasoft.com/vulnerability-db/listing.json"
 
   # it ensures db build is no older than the max-allowed-built-age
   # set to false to disable check
