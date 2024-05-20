@@ -10,13 +10,12 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/khulnasoft-lab/vessel"
 	"github.com/gin-gonic/gin"
-
 	"github.com/khulnasoft-lab/package-scanner/sbom"
 	"github.com/khulnasoft-lab/package-scanner/scanner/router"
 	"github.com/khulnasoft-lab/package-scanner/tools"
 	"github.com/khulnasoft-lab/package-scanner/utils"
+	"github.com/khulnasoft-lab/vessel"
 	containerdRuntime "github.com/khulnasoft-lab/vessel/containerd"
 	crioRuntime "github.com/khulnasoft-lab/vessel/crio"
 	dockerRuntime "github.com/khulnasoft-lab/vessel/docker"
@@ -49,7 +48,7 @@ var (
 	consoleURL          = flag.String("console-url", "", "Khulnasoft Management Console URL")
 	consolePort         = flag.Int("console-port", 443, "Khulnasoft Management Console Port")
 	vulnerabilityScan   = flag.Bool("vulnerability-scan", false, "Publish SBOM to Khulnasoft Management Console and run Vulnerability Scan")
-	khulnasoftKey        = flag.String("khulnasoft-key", "", "Khulnasoft key for auth")
+	khulnasoftKey       = flag.String("khulnasoft-key", "", "Khulnasoft key for auth")
 	source              = flag.String("source", "", "Image name (nginx:latest) or directory (dir:/)")
 	scanType            = flag.String("scan-type", "base,java,python,ruby,php,javascript,rust,rust-binary,golang,golang-binary,dotnet", "base,java,python,ruby,php,javascript,rust,rust-binary,golang,golang-binary,dotnet")
 	scanID              = flag.String("scan-id", "", "(Optional) Scan id")
@@ -92,11 +91,13 @@ func main() {
 
 	cacheDir, dirErr := os.UserCacheDir()
 	if dirErr != nil {
-		log.Fatal(dirErr)
+		log.Println(dirErr)
+		return
 	}
 
 	if err := os.MkdirAll(cacheDir, 0755); err != nil {
-		log.Fatal(err)
+		log.Println(err)
+		return
 	}
 
 	tmpPathPattern := "package-scanner-*"
@@ -114,14 +115,16 @@ func main() {
 
 	tmpPath, tmpErr := os.MkdirTemp(cacheDir, tmpPathPattern)
 	if tmpErr != nil {
-		log.Fatal(tmpErr)
+		log.Println(tmpErr)
+		return
 	}
 
 	// remove tmpPath on exit
 	defer func() {
 		log.Infof("remove tools cache %s", tmpPath)
 		if err := os.RemoveAll(tmpPath); err != nil {
-			log.Fatal(err)
+			log.Println(err)
+			return
 		}
 	}()
 
@@ -134,15 +137,17 @@ func main() {
 
 	// extract embedded binaries
 	if err := os.WriteFile(syftBinPath, tools.SyftBin, 0755); err != nil {
-		log.Fatal(err)
+		log.Println(err)
+		return
 	}
 	if err := os.WriteFile(grypeBinPath, tools.GrypeBin, 0755); err != nil {
-		log.Fatal(err)
+		log.Println(err)
+		return
 	}
 	if err := os.WriteFile(grypeConfigPath, grypeYaml, 0755); err != nil {
-		log.Fatal(err)
+		log.Println(err)
+		return
 	}
-
 	// make sure logs come to stdout in other modes except local
 	// local logs go to stderr to keep stdout clean for redirecting to file
 	if *mode != utils.ModeLocal {
@@ -188,7 +193,7 @@ func main() {
 		Quiet:                *quiet,
 		ConsoleURL:           *consoleURL,
 		ConsolePort:          strconv.Itoa(*consolePort),
-		KhulnasoftKey:         *khulnasoftKey,
+		KhulnasoftKey:        *khulnasoftKey,
 		Source:               *source,
 		ScanType:             *scanType,
 		VulnerabilityScan:    *vulnerabilityScan,

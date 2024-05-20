@@ -61,7 +61,7 @@ func processRegistryMessage(rInterface interface{}) interface{} {
 		Quiet:                 true,
 		ConsoleURL:            managementConsoleURL,
 		ConsolePort:           managementConsolePort,
-		KhulnasoftKey:          "",
+		KhulnasoftKey:         "",
 		Source:                r.Source,
 		ScanType:              r.ScanType,
 		VulnerabilityScan:     true,

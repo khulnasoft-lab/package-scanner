@@ -10,12 +10,12 @@ import (
 	"strings"
 	"time"
 
+	"github.com/google/uuid"
 	out "github.com/khulnasoft-lab/package-scanner/output"
 	"github.com/khulnasoft-lab/package-scanner/sbom/syft"
 	"github.com/khulnasoft-lab/package-scanner/scanner"
 	"github.com/khulnasoft-lab/package-scanner/scanner/grype"
 	"github.com/khulnasoft-lab/package-scanner/utils"
-	"github.com/google/uuid"
 	log "github.com/sirupsen/logrus"
 )
 

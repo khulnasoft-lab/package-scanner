@@ -148,7 +148,7 @@ func (s *gRPCServer) GenerateSBOM(_ context.Context, r *pb.SBOMRequest) (*pb.SBO
 		Quiet:                 true,
 		ConsoleURL:            s.config.ConsoleURL,
 		ConsolePort:           s.config.ConsolePort,
-		KhulnasoftKey:          s.config.KhulnasoftKey,
+		KhulnasoftKey:         s.config.KhulnasoftKey,
 		Source:                r.Source,
 		ScanType:              r.ScanType,
 		VulnerabilityScan:     true,

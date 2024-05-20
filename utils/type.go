@@ -10,7 +10,7 @@ type Config struct {
 	Quiet                 bool           `json:"quiet,omitempty"`
 	ConsoleURL            string         `json:"console_url,omitempty"`
 	ConsolePort           string         `json:"console_port,omitempty"`
-	KhulnasoftKey          string         `json:"khulnasoft_key,omitempty"`
+	KhulnasoftKey         string         `json:"khulnasoft_key,omitempty"`
 	Source                string         `json:"source,omitempty"`
 	ScanType              string         `json:"scan_type,omitempty"`
 	VulnerabilityScan     bool           `json:"vulnerability_scan,omitempty"`
