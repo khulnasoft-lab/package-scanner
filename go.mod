@@ -9,7 +9,7 @@ require (
 	github.com/aws/aws-sdk-go v1.49.16
 	github.com/gin-gonic/gin v1.9.1
 	github.com/google/uuid v1.6.0
-	github.com/khulnasoft-lab/agent-plugins-grpc v0.0.0-00010101000000-000000000000
+	github.com/khulnasoft-lab/agent-plugins-grpc v0.0.0-20240517030241-8d86ad59d455
 	github.com/khulnasoft-lab/golang_sdk/client v0.0.0-20240520213426-d989e5f20024
 	github.com/khulnasoft-lab/golang_sdk/utils v0.0.0-20240520213426-d989e5f20024
 	github.com/khulnasoft-lab/vessel v0.1.1
