@@ -22,7 +22,7 @@ IFS=/ read BUILD_OS BUILD_ARCH <<< $ARCHITECTURE
 
 rm -rf syft*
 
-git clone https://github.com/khulnasoft/syft.git --branch $RELEASE || true
+git clone https://github.com/khulnasoft-lab/syft.git --branch $RELEASE || true
 # git clone https://github.com/anchore/syft.git --branch $RELEASE || true
 (
     cd syft/cmd/syft
