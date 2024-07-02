@@ -15,7 +15,7 @@ require (
 	github.com/khulnasoft-lab/vessel v0.1.1
 	github.com/olekukonko/tablewriter v0.0.5
 	github.com/sirupsen/logrus v1.9.3
-	google.golang.org/grpc v1.64.0
+	google.golang.org/grpc v1.65.0
 )
 
 require (
