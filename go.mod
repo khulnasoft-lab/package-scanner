@@ -7,7 +7,7 @@ replace github.com/khulnasoft-lab/agent-plugins-grpc => ./agent-plugins-grpc/
 require (
 	github.com/Jeffail/tunny v0.1.4
 	github.com/aws/aws-sdk-go v1.49.16
-	github.com/gin-gonic/gin v1.9.1
+	github.com/gin-gonic/gin v1.10.0
 	github.com/google/uuid v1.6.0
 	github.com/khulnasoft-lab/agent-plugins-grpc v0.0.0-00010101000000-000000000000
 	github.com/khulnasoft-lab/golang_sdk/client v0.0.0-20240520213426-d989e5f20024
