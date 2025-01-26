@@ -11,7 +11,7 @@ require (
 	github.com/google/uuid v1.6.0
 	github.com/khulnasoft-lab/agent-plugins-grpc v0.0.0-00010101000000-000000000000
 	github.com/khulnasoft-lab/golang_sdk/client v0.0.0-20240520213426-d989e5f20024
-	github.com/khulnasoft-lab/golang_sdk/utils v0.0.0-20240520213426-d989e5f20024
+	github.com/khulnasoft-lab/golang_sdk/utils 84ea98b34f61
 	github.com/khulnasoft-lab/vessel v0.1.1
 	github.com/olekukonko/tablewriter v0.0.5
 	github.com/sirupsen/logrus v1.9.3
